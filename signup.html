@@ -17,7 +17,7 @@
     <div class="right">
     <div class="container">
     <div class="form-container">
-      <form id="signInForm">
+      <form id="signInForm" novalidate>
             <div class="logo-wrapper flex g-16">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 60 60" fill="none">
                         <path d="M0 20C0 8.9543 8.95431 0 20 0H40C51.0457 0 60 8.95431 60 20V40C60 51.0457 51.0457 60 40 60H20C8.9543 60 0 51.0457 0 40V20Z" fill="url(#pattern0_21_2027)"/>
@@ -31,20 +31,31 @@
                 <h1 class="welcome inria-serif-bold">Welcome</h1>
             </div>
         
-        <input type="username" id="username" placeholder="Username" required>
+        <input type="text"  id="username"   placeholder="Username" maxlength="50" >
+        <span id="usernameMsg" class="popup-msg"></span>
         <div class="input-password relative">
-        <input type="password" id="signinPassword" placeholder="Password" 
-        required>
+        <input type="password" id="signinPassword" placeholder="Password" maxlength="20">
+         <span id="passwordMsg" class="popup-msg"></span>
 
-        <div class="eye-icon-absolute">
-            <img src="assets/eye-slash.png" alt="Show/Hide Password">
-        </div>
+       
+         <button type="button" id="eye-toggle-btn" aria-label="Show password">
+                    <svg id="eye-toggle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+                         viewBox="0 0 24 24" fill="none">
+                        <!-- Eye outline -->
+                        <path d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z" 
+                              stroke="#1D798B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <!-- Iris / pupil -->
+                        <circle cx="12" cy="12" r="3" stroke="#1D798B" stroke-width="1.5"/>
+                        <!-- Slash overlay -->
+                        <path id="eye-slash-line" d="M2 2L22 22" stroke="#1D798B" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
         </div>
         <p class="forgot-password inria-serif-bold">
         <a href="reset-password.html">Forgot Password?</a>
         </p>
 
-        <button type="submit" class="mt-16">Sign Up</button>
+        <button type="submit" id="signInBtn" class=" sign-in-button mt-16">Sign Up</button>
 
         <div class="divider">
             <div class="divider-line"></div>
@@ -64,20 +75,12 @@
             </div>
         </div>
 
-        <p class="mt-26">Don't have an account?  <a class="color" href="index.html">Sign In</a></p>
+        <p class="mt-26">Already have an account?   <a class="color"href="index.html">Sign In</a></p>
       </form>
     </div>
     </div>
   
-      <!-- Sign Up Form -->
-      <!-- <form id="signUpForm" style="display:none;">
-        <h2>Sign Up</h2>
-        <input type="text" id="signupName" placeholder="Full Name" required>
-        <input type="email" id="signupEmail" placeholder="Email" required>
-        <input type="password" id="signupPassword" placeholder="Password" required>
-        <button type="submit">Sign Up</button>
-        <p>Already have an account? <span id="showSignIn">Sign In</span></p>
-      </form>
- -->
+      
+      <script src="script.js"></script>
 </body>
 </html>
